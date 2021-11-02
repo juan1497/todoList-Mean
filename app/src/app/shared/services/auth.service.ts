@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class AuthService {
-  urlBase="https://todo-list-juan1497.vercel.app/user/"
+  urlBase="https://todo-list-eta-seven.vercel.app/user/"
   constructor(private http:HttpClient) { }
 
   register(data:any){

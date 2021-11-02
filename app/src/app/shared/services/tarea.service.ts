@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class TareaService {
-  urlBase="http://localhost:3000/tarea/"
+  urlBase="https://todo-list-juan1497.vercel.app/tarea/"
   constructor(private http:HttpClient) { }
   addTarea(data:any){
     return this.http.post(this.urlBase+"add-tarea",data)
@@ -14,7 +14,7 @@ export class TareaService {
   getTarea(id:any){
     return this.http.get(this.urlBase+`tarea/${id}`)
   }
-  updateTarea(data:any){ //falta id
+  updateTarea(data:any){ 
     return this.http.put(this.urlBase+`update-tarea/${data._id}`,data)
   }
   deleteTarea(data:any){

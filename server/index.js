@@ -24,7 +24,7 @@ app.use((req, res, next) => {
 });
 
 app.use(cors({
-    origin: ['http://localhost:4200','https://todo-list-eta-seven.vercel.app'],
+    origin: ['http://localhost:4200','todo-list-mean-nag96ii9h-juan1497.vercel.app'],
     credentials: true,
 }));
 

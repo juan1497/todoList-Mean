@@ -1,0 +1,258 @@
+nav{
+    background-color: #262626;
+
+    ul{
+        padding: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        align-content: center;
+        list-style: none;
+        li{
+            color:hsla(0,0%,100%,.5);
+            button{
+                align-self: center;
+                width: 100px;
+                border-style: none;
+                border: 1px solid white;
+                background-color: #262626;
+                border-radius: 4px;
+                color: white;
+                padding: 5px;
+                &:hover{
+                    background-color: red;
+                    color:black;
+                    transition: 0.8s;
+                }
+            }
+        }
+
+    }
+}
+.modal-content{
+    background-color: #262626!important;
+    .modal-header{
+        border-bottom: none;
+        .modal-title{
+            color: hsla(0,0%,100%,.5);
+        }
+    }
+    form{
+        display: flex;
+        flex-direction: column;
+        p{
+            color:white;
+            text-align: center;
+        }
+        input{
+            color:white;
+            padding: 5px;
+            background-color: transparent;
+            border: white 1px solid;
+            border-radius: 4px;
+            text-align: left;
+            align-self: center;
+            margin-top: 20px;
+
+        }
+
+        button{
+            margin-top: 48px;
+            align-self: center;
+            // width: 100px;
+            border-style: none;
+            border: 1px solid white;
+            background-color: #262626;
+            border-radius: 4px;
+            color: white;
+            padding: 10px;
+            &:hover{
+                background-color: white;
+                color:black;
+                transition: 0.8s;
+            }
+        }
+    }
+}
+.alerta{
+    text-align: center;
+    color: red;
+}
+// modal logout
+.modal-content{
+    background-color: #262626!important;
+    .modal-header{
+        border-bottom: none;
+    }
+    .modal-body{
+        h3{
+            text-align: center;
+            color: hsla(0,0%,100%,.5);
+        }
+    }
+    .buttons{
+        display: flex;
+        justify-content: space-evenly;
+        margin-bottom: 20px;
+        .si{
+            
+            align-self: center;
+            width: 100px;
+            border-style: none;
+            border: 1px solid white;
+            background-color: #262626;
+            border-radius: 4px;
+            color: white;
+            padding: 5px;
+            &:hover{
+                background-color: red;
+                color:black;
+                transition: 0.8s;
+            }
+            
+        }
+        .no{
+            
+            align-self: center;
+            width: 100px;
+            border-style: none;
+            border: 1px solid white;
+            background-color: #262626;
+            border-radius: 4px;
+            color: white;
+            padding: 5px;
+            &:hover{
+                background-color: blueviolet;
+                color:black;
+                transition: 0.8s;
+            
+            }
+        }
+    }
+
+}
+h2{
+    text-align: center;
+    button{
+        margin-left: 50px;
+        font-size: 20px;
+        align-self: center;
+        border-style: none;
+        border: 1px solid white;
+        background-color: #262626;
+        border-radius: 4px;
+        color: white;
+        padding: 5px;
+        &:hover{
+            background-color: red;
+            color:black;
+            transition: 0.8s;
+        }
+    
+    }
+}
+main{
+    display: block;
+    height: 500px;
+    overflow-y: auto;
+    .cards{ 
+        align-self: center;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin: 2px;
+        .item{
+            margin: 2px;
+            width: 240px;
+            // height: 300px;
+            background-color: white;
+            border-radius: 7px;
+            h5{
+                text-align: center;
+                margin-bottom: 10px;
+            }
+            p{
+                text-align: center;
+                padding: 3px;
+            }
+            .botones{
+                display: flex;
+                justify-content: space-between;
+                padding: 10px;
+            }
+        }
+    }
+   
+}
+
+  ul{
+    list-style:none;
+    overflow:hidden;
+    padding:3em;
+    li{
+        margin:1em;
+        float:left;
+        h2{
+            font-size:140%;
+            font-weight:bold;
+            padding-bottom:10px;
+        }
+        a{
+            text-decoration:none;
+            color:#000;
+            background:#ffc;
+            display:block;
+
+            padding:1em;
+            -moz-box-shadow:5px 5px 7px rgba(33,33,33,1);
+            -webkit-box-shadow: 5px 5px 7px rgba(33,33,33,.7);
+            box-shadow: 5px 5px 7px rgba(33,33,33,.7);
+            -moz-transition:-moz-transform .15s linear;
+            -o-transition:-o-transform .15s linear;
+            -webkit-transition:-webkit-transform .15s linear;
+            -webkit-transform: rotate(-6deg);
+            -o-transform: rotate(-6deg);
+            -moz-transform:rotate(-6deg);
+            &:hover,&:focus{
+                box-shadow:10px 10px 7px rgba(0,0,0,.7);
+                -moz-box-shadow:10px 10px 7px rgba(0,0,0,.7);
+                -webkit-box-shadow: 10px 10px 7px rgba(0,0,0,.7);
+                -webkit-transform: scale(1.25);
+                -moz-transform: scale(1.25);
+                -o-transform: scale(1.25);
+                position:relative;
+                z-index:5;
+            }
+
+        }
+        p{
+            font-family:"Reenie Beanie",arial,sans-serif;
+            font-size:180%;
+
+        }
+        &:nth-child(even) a{
+            -o-transform:rotate(4deg);
+            -webkit-transform:rotate(4deg);
+            -moz-transform:rotate(4deg);
+            position:relative;
+            top:5px;
+            background:#cfc;
+        }
+        &:nth-child(3n) a{
+            -o-transform:rotate(-3deg);
+            -webkit-transform:rotate(-3deg);
+            -moz-transform:rotate(-3deg);
+            position:relative;
+            top:-5px;
+            background:#ccf;
+        }
+        &::nth-child(5n) a{
+            -o-transform:rotate(5deg);
+            -webkit-transform:rotate(5deg);
+            -moz-transform:rotate(5deg);
+            position:relative;
+            top:-10px;
+        }
+
+    }
+  }

@@ -1,0 +1,98 @@
+<nav>
+    <ul>
+        <li class="nombre">Usuario :  {{user| uppercase}}</li>
+        <li>
+            <button data-bs-toggle="modal" data-bs-target="#logout">
+                LogOut
+            </button>
+        </li>
+    </ul>
+</nav>
+<h2>Tareas pendientes  {{user| titlecase}} <button data-bs-toggle="modal" data-bs-target="#agregarTarea">Agregar</button> </h2>
+<!-- <main>
+    <div class="cards">
+      <div class="item">
+        <h5></h5>
+        <p></p>
+      </div>     
+    </div>
+</main> -->
+<ul>
+  <li *ngFor="let tarea of tareas">
+    <a>
+      <h2>{{tarea.name}}</h2>
+      <p>{{tarea.description}}</p>
+      <p>Fecha : {{tarea.date}}</p>
+      <div class="botones">
+        <button (click)="getTarea(tarea._id)"data-bs-toggle="modal" data-bs-target="#updateTarea">Editar</button>
+        <button (click)="deleteTarea(tarea._id)">Eliminar</button>
+      </div>
+    </a>
+  </li>
+</ul>
+<!-- modal logout -->
+<div class="modal fade" id="logout" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <h3>¿Estas seguro que deseas Salir ?</h3>
+        </div>
+        <div class="buttons">
+            <button type="button" class="si" data-bs-dismiss="modal"(click)="logout('')">Si</button>
+            <button type="button" class="no"data-bs-dismiss="modal">No</button>
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- modal  crear tarea -->
+  <div class="modal fade" id="agregarTarea" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Tarea</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form  (ngSubmit)="addTarea()"[formGroup]="tareaForm" >
+            <p>Ingresa La Tarea Que Deseas Agregar</p>
+              <input formControlName="name" type="text" placeholder="Tarea">
+              <div *ngIf="!tareaForm.get('name')?.valid && (tareaForm.get('name')?.dirty)" class="alerta">
+                      Has introducido mal el  campo</div>
+              <input class="description"formControlName="description" type="textarea"placeholder="Descripcion" >
+              <div *ngIf="!tareaForm.get('description')?.valid && (tareaForm.get('description')?.dirty)"class="alerta" >
+                  Has introducido mal el  campo</div>
+              <input formControlName="date" type="date">
+              <button type="submit" data-bs-dismiss="modal" [disabled]="!tareaForm.valid">Añadir Tarea</button>
+            </form>
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- modal update -->
+<div class="modal fade" id="updateTarea" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Tarea</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form (ngSubmit)="update()" [formGroup]="updateForm" >
+          <p>Ingresa La Tarea Que Deseas Agregar</p>
+          <input formControlName="id" type="text" readonly hidden>
+            <input formControlName="name" type="text" placeholder="Tarea">
+            <div *ngIf="!updateForm.get('name')?.valid && (updateForm.get('name')?.dirty)" class="alerta">
+                    Has introducido mal el  campo</div>
+            <input class="description"formControlName="description" type="textarea"placeholder="Descripcion" >
+            <div *ngIf="!updateForm.get('description')?.valid && (updateForm.get('description')?.dirty)"class="alerta" >
+                Has introducido mal el  campo</div>
+            <input formControlName="date" type="date">
+            <button type="submit" data-bs-dismiss="modal" [disabled]="!updateForm.valid">Actualizar Tarea</button>
+          </form>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,43 @@
+<div class="contenedor">
+    <div class="formulario">
+        <form (ngSubmit)="login()" [formGroup]="loginForm">
+            <h2>Login</h2>
+            <p>Porfavor introduce tu usuario y contraseña</p>
+            <input formControlName="email" type="email" placeholder="Email">
+            <input formControlName="password" type="password" placeholder="Contraseña">
+            <button type="submit">Ingresar</button>
+        </form>
+        <p>No tienes cuenta ?<button type="button" class="registro" data-bs-toggle="modal" data-bs-target="#exampleModal">Registrate</button></p>
+    </div>
+
+</div>
+  <!-- Modal -->
+
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Registro</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="">
+              <form (ngSubmit)="register()" [formGroup]="registerForm">
+              <p>Ingresa Tus datos para registrarte</p>
+                <input formControlName="name" type="text" placeholder="Nombre">
+                <div *ngIf="!registerForm.get('name')?.valid && (registerForm.get('name')?.dirty)" class="alerta">
+                        Has introducido mal el  campo</div>
+                <input formControlName="email" type="email"placeholder="Email" >
+                <div *ngIf="!registerForm.get('email')?.valid && (registerForm.get('email')?.dirty)"class="alerta" >
+                    Has introducido mal el  campo</div>
+                <input formControlName="password" type="password"placeholder="Contraseña">
+                <input formControlName="repeatPassword"type="password"placeholder="Repite la Contraseña">
+                <div *ngIf="registerForm.get('password')?.value!=registerForm.get('repeatPassword')?.value" class="alerta">
+                    Las contraseñas no coinciden</div>
+                <button type="submit" data-bs-dismiss="modal" [disabled]="!registerForm.valid">Registrarse</button>
+              </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

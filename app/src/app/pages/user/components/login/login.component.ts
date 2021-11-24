@@ -33,12 +33,16 @@ export class LoginComponent implements OnInit {
         password:this.loginForm.get('password')?.value
       }
       this.api.login(user).subscribe((response:any)=>{
-        console.log(response)
-        localStorage.setItem("token",response.data.token)
-        localStorage.setItem("user",response.data.user.name)
-        localStorage.setItem("email",response.data.user.email)
-        this.router.navigate(['home']);
-      this.loginForm.reset();
+        if(response.status==201){
+          localStorage.setItem("token",response.data.token)
+          localStorage.setItem("user",response.data.user.name)
+          localStorage.setItem("email",response.data.user.email)
+          this.router.navigate(['home']);
+          this.loginForm.reset();
+        }else{
+          alert("Error")
+        }
+        
       })
     }
   }
@@ -52,7 +56,13 @@ export class LoginComponent implements OnInit {
       }
       this.api.register(user).subscribe((response:any)=>{
         console.log(response)
-        this.registerForm.reset();
+        if(response.status==201){
+          alert("Registro Completado");
+          this.registerForm.reset();
+        }else{
+          alert("Algo a fallado");
+        }
+        
       })
     }
   }
